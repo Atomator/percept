@@ -15,10 +15,10 @@ const router = new Router({
         component: Homepage
     },
     {
-      path: '/',
+      path: '/login',
       name: 'Login',
       component: Login 
-    }
+    },
   ]
 })
 
