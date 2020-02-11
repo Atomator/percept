@@ -2,16 +2,13 @@
   <div id="app">
     <router-view id="router"/>
   </div>
-  <div id="login">
-    <router-view id="router"/>
-  </div>
+
 </template>
 
 <script>
 
 export default {
   name: 'app',
-  name: 'login'
 }
 </script>
 

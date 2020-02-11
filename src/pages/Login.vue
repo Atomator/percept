@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1 class="text-primary">Login</h1>
+    
+     <button type="button" class="btn btn-outline-primary">Start</button> 
   </div>
 </template>
 
