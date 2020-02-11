@@ -1,10 +1,17 @@
 
-<template>
-  <div>
-    <h1 class="text-primary">Login</h1>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+<template width="100%" height="100%" >
+ <div style="margin-left:40% ;margin-top:10%;width:20%; " align="center" >
+   <h3>Login</h3><br/>
+  <div style="background:#ffffff;width:100%;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
+    <label class="fadeIn second label1" style="margin-top:25px;font-weight:bold;" >Username</label>
+      <input type="text" id="login" class="fadeIn second" name="login"> 
+       <label class="fadeIn second label1" style="margin-top:15px;font-weight:bold;" >Password</label>
+      <input type="text" id="password" class="fadeIn third" name="login" >
+      <input type="submit" class="fadeIn fourth" value="Log In" style="border-radius:40px;margin-top:40px;"> <br/>
+       <label class="fadeIn second" style="font-weight:bold;" >or</label>
+       <br/>
+       <a type="submit" class="fadeIn fourth" value="Log In" style="border-radius:40px;text-decoration:underline;margin-bottom:40px;">Sign Up</a>
+  </div>
   </div>
 </template>
 
@@ -16,7 +23,9 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  height: 100vh;
+  height: 100%;
+  width:100%;
+ 
 }
 
 a {
@@ -25,7 +34,12 @@ a {
   text-decoration: none;
   font-weight: 400;
 }
-
+h3{
+color:#000000;
+font-weight:bolder;
+font-family:  Calibri, 'Trebuchet MS', sans-serif;
+margin-bottom: 35px;
+}
 h2 {
   text-align: center;
   font-size: 16px;
@@ -47,7 +61,7 @@ h2 {
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  padding: 20px;
+  padding: 50%;
 }
 
 #formContent {
@@ -56,7 +70,7 @@ h2 {
   background: #fff;
   padding: 30px;
   width: 90%;
-  max-width: 450px;
+  max-width: 100%;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
@@ -104,7 +118,7 @@ input[type=button], input[type=submit], input[type=reset]  {
   box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-  margin: 5px 20px 40px 20px;
+  margin: 5px 20px 10px 20px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -125,7 +139,8 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
 }
 
 input[type=text] {
-  background-color: #f6f6f6;
+  border-radius:20px;
+  background-color: #ffffff;
   border: none;
   color: #0d0d0d;
   padding: 15px 32px;
@@ -141,8 +156,23 @@ input[type=text] {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
+ 
+  
+}
+
+.label1{
+  background-color: #ffffff;
+  color: #0d0d0d;
+  text-align: left;
+  display: inline-block;
+  font-size: 16px;
+  width: 85%;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+
 }
 
 input[type=text]:focus {

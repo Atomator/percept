@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="background: #f8f9fa;">
     <router-view id="router"/>
   </div>
 
@@ -20,5 +20,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  
 }
 </style>
