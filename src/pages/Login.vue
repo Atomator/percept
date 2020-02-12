@@ -10,7 +10,7 @@
       <input type="submit" value="Log In"> <br/>
        <label style="font-weight:bold;" >or</label>
        <br/>
-       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;">Sign Up</a>
+       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Sign Up</a>
   </div>
   </div>
 </template>
@@ -27,20 +27,19 @@ body {
 h3{
 color:#000000;
 font-weight:bolder;
-font-family:  Calibri, 'Trebuchet MS', sans-serif;
+font-family:  'Avenir';
 margin-bottom: 35px;
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #56baed;
+  background-color: #80C0F7;
   border: none;
   color: white;
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  text-transform: uppercase;
-  font-size: 13px;
+  font-size: 20px;
   -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
