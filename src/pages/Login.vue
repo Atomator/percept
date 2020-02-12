@@ -2,7 +2,7 @@
 <template>
  <div style="margin-top:10%; " align="center" >
    <h3>Login</h3><br/>
-  <div style="background:#ffffff;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
+  <div style="background:#00000012;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
     <label class="label1">Username</label>
       <input type="text" id="login" name="login"> 
        <label class="label1">Password</label>
@@ -18,16 +18,16 @@
 <style>
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif;
   height: 100%;
   width:100%;
  
 }
 
 h3{
-color:#000000;
-font-weight:bolder;
-font-family:  'Avenir';
+color:#373F47;
+font-weight:bold;
+font-family:  'Open Sans';
 margin-bottom: 35px;
 }
 
@@ -55,7 +55,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #39ace7;
+  background-color: #80C0F7;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -107,7 +107,7 @@ input[type=text]:focus {
 
 .label1{
   background-color: #ffffff;
-  color: #0d0d0d;
+  color: #373F47;
   text-align: left;
   display: inline-block;
   font-size: 16px;
