@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <template>
   <div>
     <h1 class="text-primary">Welcome</h1>
@@ -19,4 +17,3 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>
-</html>
