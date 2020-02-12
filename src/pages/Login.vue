@@ -6,7 +6,7 @@
     <label class="label1">Username</label>
       <input type="text" id="login" name="login"> 
        <label class="label1">Password</label>
-      <input type="text" id="password" name="login" >
+      <input type="password" id="password" name="login" >
       <input type="submit" value="Log In"> <br/>
        <label style="font-weight:bold;" >or</label>
        <br/>
@@ -83,6 +83,22 @@ input[type=text] {
   transition: all 0.5s ease-in-out;
  
   
+}
+input[type=password]{
+  border-radius:20px;
+  background-color: #ffffff;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 input[type=text]:focus {

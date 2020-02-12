@@ -8,8 +8,8 @@
     <label class="label1">Email</label> 
       <input type="text" id="email" name="signup" >
     <label class="label1">Password</label>
-      <input type="text" id="password" name="signup" >
-      <input type="submit" value="Sign Up"> <br/>
+      <input type="password" id="password" name="signup" >
+         <input type="submit" value="Sign Up"> <br/>
        <label style="font-weight:bold;" >or</label>
        <br/>
        <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Log In</a>
@@ -82,9 +82,23 @@ input[type=text] {
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; 
+}
+input[type=password]{
+  border-radius:20px;
+  background-color: #ffffff;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
- 
-  
 }
 
 input[type=text]:focus {
