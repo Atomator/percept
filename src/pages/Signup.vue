@@ -1,18 +1,19 @@
 
 <template>
  <div style="margin-top:10%; " align="center" >
-   <h3>Sign Up</h3><br/>
-  <div style="background:#00000012;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
-    <label class="label1">Username</label>
-      <input type="text" id="login" name="signup">
+  <h3>Sign Up</h3><br/>
+  <div style="background: #00000012; width: 350px; border-radius: 25px;" class="shadow-lg p-3 mb-5 bg-white">
     <label class="label1">Email</label> 
-      <input type="text" id="email" name="signup" >
+    <input type="text" id="email" name="signup" >
     <label class="label1">Password</label>
-      <input type="text" id="password" name="signup" >
-      <input type="submit" value="Sign Up"> <br/>
-       <label style="font-weight:bold;" >or</label>
-       <br/>
-       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Log In</a>
+    <input type="text" id="password" name="signup" >
+    <input type="submit" value="Sign Up">
+    <br/>
+    <label style="font-weight: bold;">or</label>
+    <br/>
+    <router-link to="/login">
+      <a type="submit" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Log In</a>
+    </router-link>
   </div>
   </div>
 </template>
