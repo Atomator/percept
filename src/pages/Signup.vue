@@ -60,7 +60,7 @@
 </script>
 
 
-<style>
+<style scoped>
 
 .btn-google:hover {
   color: #ffffff !important;
