@@ -15,7 +15,7 @@
         <a type="submit" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Log In</a>
       </router-link>
       <br/>
-      <a @click="googleLogin" class="btn btn-outline-primary" role="button" style="text-transform:none; margin-bottom:15px;" >
+      <a @click="googleLogin" class="btn-google btn btn-outline-primary" role="button" style="text-transform:none; margin-bottom:15px;" >
         <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
         Sign Up with Google
       </a>
