@@ -139,6 +139,24 @@ input[type=text]:focus {
   font-weight:bold;
 }
 
+input[type=password] {
+  border-radius:20px;
+  background-color: #ffffff;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+ 
+  
+}
 
 
 </style>
