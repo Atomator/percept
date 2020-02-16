@@ -1,36 +1,86 @@
 
 <template>
- <div style="margin-top:10%; " align="center" >
-   <h3>Sign Up</h3><br/>
-  <div style="background:#00000012;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
-    <label class="label1">Username</label>
-      <input type="text" id="login" name="signup">
-    <label class="label1">Email</label> 
-      <input type="text" id="email" name="signup" >
-    <label class="label1">Password</label>
-      <input type="text" id="password" name="signup" >
-      <input type="submit" value="Sign Up"> <br/>
-       <label style="font-weight:bold;" >or</label>
-       <br/>
-       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Log In</a>
-  </div>
+  <div style="margin-top:10%;" align="center" >
+    <h3>Sign Up</h3><br/>
+    <div style="background: #ffffff; width: 350px; border-radius: 25px;" class="shadow-lg p-3 mb-5 bg-white">
+      <label class="label1">Email</label> 
+      <input v-model="email" type="text" id="email" name="signup">
+      <label class="label1">Password</label>
+      <input v-model="password" type="password" id="password" name="signup">
+      <input @click="signUp" type="submit" value="Sign Up">
+      <br/>
+      <label style="font-weight: bold;">or</label>
+      <br/>
+      <router-link to="/login">
+        <a type="submit" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Log In</a>
+      </router-link>
+      <br/>
+      <a @click="googleLogin" class="btn btn-outline-primary" role="button" style="text-transform:none; margin-bottom:15px;" >
+        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+        Sign Up with Google
+      </a>
+    </div>  
   </div>
 </template>
 
+
+<script>
+  import firebase from 'firebase'
+
+  export default {
+    name: 'Signup',
+    data() {
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      signUp: function() {
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+          function () {
+            this.$router.replace('dashboard')
+          },
+          function (err) {
+            alert('Oops. ' + err.message)
+          }
+        )
+      },
+      googleLogin: function() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth().signInWithPopup(provider).then(() => {
+          this.$router.replace('dashboard')
+        }).catch((err) => {
+          alert('Oops. ' + err.message)
+        })
+      }
+    }
+  }
+</script>
+
+
 <style>
+
+.btn-google:hover {
+  color: #ffffff !important;
+}
+
+.btn-google {
+  color: #80C0F7 !important;
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
   width:100%;
- 
 }
 
 h3{
-color:#000000;
-font-weight:bolder;
-font-family:  'Open Sans';
-margin-bottom: 35px;
+  color:#000000;
+  font-weight: bolder;
+  font-family: 'Open Sans';
+  margin-bottom: 35px;
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
@@ -68,7 +118,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input {
   border-radius:20px;
   background-color: #ffffff;
   color: #0d0d0d;
@@ -87,7 +137,7 @@ input[type=text] {
   
 }
 
-input[type=text]:focus {
+input:focus {
   border-radius:20px;
   background-color: #ffffff;
   color: #0d0d0d;
@@ -128,15 +178,5 @@ input[type=text]:focus {
 
 
 </style>
-
-
-<script>
-export default {
-  name: 'Signup',
-  props: {
-    msg: String
-  }
-}
-</script>
 
 
