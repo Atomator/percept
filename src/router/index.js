@@ -14,9 +14,9 @@ const router = new Router({
         component: Homepage
     },
     {
-        path: 'Signup',
-        name: 'Signup',
-        component: Signup
+      path: '/signup',
+      name: 'SignUp',
+      component: Signup
     },
   ]
 })
