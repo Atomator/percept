@@ -72,17 +72,14 @@ export default {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
   height: 100%;
   width:100%;
- 
 }
 
 h3{
-color:#373F47;
-font-weight:bold;
-font-family:  'Open Sans';
-margin-bottom: 35px;
+  color:#373F47;
+  font-weight:bold;
+  margin-bottom: 35px;
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
