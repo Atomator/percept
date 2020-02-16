@@ -71,7 +71,6 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
   height: 100%;
   width:100%;
 }
@@ -79,7 +78,6 @@ body {
 h3{
   color:#000000;
   font-weight: bolder;
-  font-family: 'Open Sans';
   margin-bottom: 35px;
 }
 
