@@ -1,34 +1,85 @@
 
 <template>
- <div style="margin-top:10%; " align="center" >
-   <h3>Login</h3><br/>
-  <div style="background:#00000012;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
-    <label class="label1">Username</label>
-      <input type="text" id="login" name="login"> 
-       <label class="label1">Password</label>
-      <input type="password" id="password" name="login" >
-      <input type="submit" value="Log In"> <br/>
-       <label style="font-weight:bold;" >or</label>
-       <br/>
-       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Sign Up</a>
-  </div>
+  <div style="margin-top:10%; " align="center" >
+    <h3>Login</h3><br/>
+    <div style="background:#ffffff; width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
+      <label class="label1">Email</label>
+      <input v-model="email" type="text"> 
+      <label class="label1">Password</label>
+      <input v-model="password" type="password" name="login">
+      <input @click="login" type="submit" value="Log In"> 
+      <br/>
+      <label style="font-weight:bold;" >or</label>
+      <br/>
+      <router-link to="/signup">
+        <a type="submit" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Sign Up</a>
+      </router-link>
+      <br/>
+      <a @click="googleLogin" class="btn-google btn btn-outline-primary" role="button" style="text-transform:none; margin-bottom:15px;" >
+        <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+        Login with Google
+      </a>
+    </div>
   </div>
 </template>
 
+
+<script>
+import firebase from 'firebase'
+
+export default {
+  name: 'Login',
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: function() {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+        function () {
+          this.$router.replace('dashboard')
+        },
+        function (err) {
+          alert('Opps. ' + err.message)
+        }
+      )
+    },
+    googleLogin: function() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      firebase.auth().signInWithPopup(provider).then(() => {
+        this.$router.replace('dashboard')
+      }).catch((err) => {
+        alert('Oops. ' + err.message)
+      })
+    }
+  }
+}
+</script>
+
+
+
 <style>
 
+.btn-google:hover {
+  color: #ffffff !important;
+}
+
+.btn-google {
+  color: #80C0F7 !important;
+}
+
 body {
-  font-family: "Open Sans", sans-serif;
   height: 100%;
   width:100%;
- 
 }
 
 h3{
-color:#373F47;
-font-weight:bold;
-font-family:  'Open Sans';
-margin-bottom: 35px;
+  color:#373F47;
+  font-weight:bold;
+  margin-bottom: 35px;
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
@@ -66,7 +117,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input {
   border-radius:20px;
   background-color: #ffffff;
   color: #0d0d0d;
@@ -101,7 +152,7 @@ input[type=password]{
   transition: all 0.5s ease-in-out;
 }
 
-input[type=text]:focus {
+input:focus {
   border-radius:20px;
   background-color: #ffffff;
   color: #0d0d0d;
@@ -160,15 +211,4 @@ input[type=password] {
 
 
 </style>
-
-
-<script>
-export default {
-  name: 'Login',
-  props: {
-    msg: String
-  }
-}
-</script>
-
 
