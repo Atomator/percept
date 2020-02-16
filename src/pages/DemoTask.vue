@@ -48,12 +48,12 @@ export default {
         createdAt: new Date()
       })
       .then(function(docRef) {
-        alert("Document written with ID: ", docRef.id);
+        console.log("Document written with ID: ", docRef.id);
       })
       .catch(function(error) {
-        alert("Error adding document: ", error);
+        console.log("Error adding document: ", error);
       });
-      
+
       this.newTodo = '';
     }
   }
