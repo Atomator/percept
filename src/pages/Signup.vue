@@ -1,20 +1,43 @@
 
 <template>
- <div style="margin-top:10%; " align="center" >
-   <h3>Sign Up</h3><br/>
-  <div style="background:#00000012;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
-    <label class="label1">Username</label>
-      <input type="text" id="login" name="signup">
-    <label class="label1">Email</label> 
-      <input type="text" id="email" name="signup" >
-    <label class="label1">Password</label>
-      <input type="text" id="password" name="signup" >
-      <input type="submit" value="Sign Up"> <br/>
+  <div style="margin-top:5%; ">
+<section class="container-fluid">
+  <section class="row justify-content-center">
+       <section class="col-sm-2 col-sm-3">
+            <h1 style="font-weight:bolder;">Sign Up</h1><br/>
+         <div style="background:#00000012;width:450px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
+          <div class="col-12 col-sm-1 col-sm-2 font-weight-bold" >
+            <label for="login">Email</label>
+          </div>
+          <div class="col">
+            <input type="text" id="login" name="login"> 
+          </div>
+           <div class="col-12 col-sm-1 col-sm-2 font-weight-bold" >
+            <label for="password">Password</label>
+          </div>
+          <div class="col" >
+            <input type="password" id="password" name="login"> 
+          </div>
+           <div class="col-12 col-sm-1 col-sm-5 font-weight-bold" >
+            <label for="c_password">Confirm Password</label>
+          </div>
+          <div class="col" >
+            <input type="password" id="c_password" name="login"> 
+          </div>
+          <div class="form-group" >
+          <input type="submit" value="Sign Up"> 
+          </div>
        <label style="font-weight:bold;" >or</label>
        <br/>
-       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Log In</a>
-  </div>
-  </div>
+       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Log In</a>
+      <div class="form-group">
+       <a role="button" class="btn-google btn btn-outline-primary" style="text-transform: none; margin-bottom: 15px;color:#80C0f7;"><img width="20px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" style="margin-bottom: 3px; margin-right: 5px;"> Sign Up with Google </a>
+      </div>
+         </div>
+      </section>
+  </section>
+</section>
+</div>
 </template>
 
 <style>
@@ -26,18 +49,12 @@ body {
  
 }
 
-h3{
-color:#000000;
-font-weight:bolder;
-font-family:  'Open Sans';
-margin-bottom: 35px;
-}
+
 
 input[type=button], input[type=submit], input[type=reset]  {
   background-color: #80C0F7;
   border: none;
   color: white;
-  padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -66,13 +83,13 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -o-transform: scale(0.95);
   -ms-transform: scale(0.95);
   transform: scale(0.95);
+   padding: 15px 32px;
 }
 
-input[type=text] {
+input[type=text], input[type=password]{
   border-radius:20px;
   background-color: #ffffff;
   color: #0d0d0d;
-  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -83,8 +100,8 @@ input[type=text] {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
- 
-  
+  padding: 15px 32px;
+  width:100%
 }
 
 input[type=text]:focus {
@@ -102,6 +119,7 @@ input[type=text]:focus {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  width:100%
 }
 
 

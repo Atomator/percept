@@ -1,18 +1,68 @@
-
 <template>
- <div style="margin-top:10%; " align="center" >
-   <h3>Login</h3><br/>
-  <div style="background:#00000012;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
-    <label class="label1">Username</label>
-      <input type="text" id="login" name="login"> 
-       <label class="label1">Password</label>
-      <input type="password" id="password" name="login" >
-      <input type="submit" value="Log In"> <br/>
+<!--<div style="margin-top:10%; ">
+<section class="container-fluid">
+  <section class="row justify-content-center">
+       <section class="col-sm-2 col-sm-2">
+            <h3>Login</h3><br/>
+         <div style="background:#00000012;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
+          <div class="col-12 col-sm-4 col-sm-4 font-weight-bold" >
+            <label for="login">Email</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="login" name="login"> 
+          </div>
+           <div class="col-12 col-sm-1 col-sm-5 font-weight-bold" >
+            <label for="password">Password</label>
+          </div>
+          <div class="form-group" style="margin-bottom:0px;margin-top:0px;">
+            <input type="password" id="password" name="login"> 
+          </div>
+          <div class="form-group" >
+          <input type="submit" value="Log In"> 
+          </div>
        <label style="font-weight:bold;" >or</label>
        <br/>
-       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Sign Up</a>
-  </div>
-  </div>
+       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Sign Up</a>
+      <div class="form-group">
+       <a role="button" class="btn-google btn btn-outline-primary" style="text-transform: none; margin-bottom: 15px;color:#80C0f7;"><img width="20px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" style="margin-bottom: 3px; margin-right: 5px;"> Login with Google </a>
+      </div>
+         </div>
+      </section>
+  </section>
+</section>
+</div>-->
+<div style="margin-top:5%; ">
+<section class="container-fluid">
+  <section class="row justify-content-center">
+       <section class="col-sm-2 col-sm-3">
+            <h1 style="font-weight:bolder;">Login</h1><br/>
+         <div style="background:#00000012;width:450px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
+          <div class="col-12 col-sm-1 col-sm-2 font-weight-bold;" >
+            <label for="login">Email</label>
+          </div>
+          <div class="col">
+            <input type="text" id="login" name="login"> 
+          </div>
+           <div class="col-12 col-sm-1 col-sm-2 font-weight-bold" >
+            <label for="password">Password</label>
+          </div>
+          <div class="col" >
+            <input type="password" id="password" name="login"> 
+          </div>
+          <div class="form-group" >
+          <input type="submit" value="Login"> 
+          </div>
+       <label style="font-weight:bold;" >or</label>
+       <br/>
+       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Sign Up</a>
+      <div class="form-group">
+       <a role="button" class="btn-google btn btn-outline-primary" style="text-transform: none; margin-bottom: 15px;color:#80C0f7;"><img width="20px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" style="margin-bottom: 3px; margin-right: 5px;"> Login with Google </a>
+      </div>
+         </div>
+      </section>
+  </section>
+</section>
+</div>
 </template>
 
 <style>
@@ -22,13 +72,6 @@ body {
   height: 100%;
   width:100%;
  
-}
-
-h3{
-color:#373F47;
-font-weight:bold;
-font-family:  'Open Sans';
-margin-bottom: 35px;
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
@@ -66,7 +109,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text],input[type=password] {
   border-radius:20px;
   background-color: #ffffff;
   color: #0d0d0d;
@@ -81,11 +124,11 @@ input[type=text] {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
- 
-  
+ width:100%;
+  margin-bottom:30px;margin-top:10px;
 }
 
-input[type=text]:focus {
+input[type=text],input[type=tpassword]:focus {
   border-radius:20px;
   background-color: #ffffff;
   color: #0d0d0d;
@@ -100,45 +143,8 @@ input[type=text]:focus {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-}
-
-
-
-
-.label1{
-  background-color: #ffffff;
-  color: #373F47;
-  text-align: left;
-  display: inline-block;
-  font-size: 16px;
-  width: 85%;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  margin-top:15px;
-  font-weight:bold;
-  margin-top:25px;
-  font-weight:bold;
-}
-input[type=password] {
-  border-radius:20px;
-  background-color: #ffffff;
-  color: #0d0d0d;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border: 2px solid #f6f6f6;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
- 
-  
+  width:100%;
+  margin-bottom:30px;margin-top:10px;
 }
 
 
