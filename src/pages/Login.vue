@@ -1,36 +1,4 @@
 <template>
-<!--<div style="margin-top:10%; ">
-<section class="container-fluid">
-  <section class="row justify-content-center">
-       <section class="col-sm-2 col-sm-2">
-            <h3>Login</h3><br/>
-         <div style="background:#00000012;width:350px;border-radius:25px;" class="shadow-lg p-3 mb-5 bg-white ">
-          <div class="col-12 col-sm-4 col-sm-4 font-weight-bold" >
-            <label for="login">Email</label>
-          </div>
-          <div class="form-group">
-            <input type="text" id="login" name="login"> 
-          </div>
-           <div class="col-12 col-sm-1 col-sm-5 font-weight-bold" >
-            <label for="password">Password</label>
-          </div>
-          <div class="form-group" style="margin-bottom:0px;margin-top:0px;">
-            <input type="password" id="password" name="login"> 
-          </div>
-          <div class="form-group" >
-          <input type="submit" value="Log In"> 
-          </div>
-       <label style="font-weight:bold;" >or</label>
-       <br/>
-       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Sign Up</a>
-      <div class="form-group">
-       <a role="button" class="btn-google btn btn-outline-primary" style="text-transform: none; margin-bottom: 15px;color:#80C0f7;"><img width="20px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" style="margin-bottom: 3px; margin-right: 5px;"> Login with Google </a>
-      </div>
-         </div>
-      </section>
-  </section>
-</section>
-</div>-->
 <div style="margin-top:5%; ">
 <section class="container-fluid">
   <section class="row justify-content-center">
