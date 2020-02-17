@@ -126,12 +126,37 @@ input[type=text],input[type=tpassword]:focus {
 
 
 <script>
+import firebase from 'firebase'
+
 export default {
   name: 'Login',
-  props: {
-    msg: String
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: function() {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+        function () {
+          this.$router.replace('dashboard')
+        },
+        function (err) {
+          alert('Opps. ' + err.message)
+        }
+      )
+    },
+    googleLogin: function() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      firebase.auth().signInWithPopup(provider).then(() => {
+        this.$router.replace('dashboard')
+      }).catch((err) => {
+        alert('Oops. ' + err.message)
+      })
+    }
   }
 }
 </script>
-
 
