@@ -13,6 +13,11 @@
           <div class="form-group" >
           <input type="submit" @click="resetPassword" value="Send"> 
           </div>
+         <label style="font-weight:bold;" >or</label>
+        <br/>
+        <router-link to='/login'> 
+       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Log In</a>
+        </router-link>  
          </div>
          </div>
       </section>
