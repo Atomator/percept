@@ -93,7 +93,7 @@ export default {
             alert("Password reset has been sent");
         },
         function (err) {
-            alert("Oops, your email hasn't sent");
+            alert("Oops, your email hasn't been sent because: " + err.message);
         })
      },
 
