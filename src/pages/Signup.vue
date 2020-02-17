@@ -101,7 +101,7 @@ input[type=text], input[type=password]{
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   padding: 15px 32px;
-  width:100%
+  width:100%;
 }
 
 input[type=text]:focus {
@@ -119,7 +119,7 @@ input[type=text]:focus {
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  width:100%
+  width:100%;
 }
 
 
