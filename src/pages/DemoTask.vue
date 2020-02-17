@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class = "container">
     <h1 class="text-primary">Demo Task List</h1>
     <router-link to="/dashboard">
         <button class="btn btn-dark">Return to Dashboard</button>
@@ -16,9 +16,12 @@
       </form>
     </div>
     <div>
-      <p v-for="todo in todos" :key="todo.id">
+    <ul class="list-group">
+      <li class="list-group-item" v-for="todo in todos" :key="todo.id">
         {{todo.text}}
-      </p>
+        <button style="float: right;" class="btn btn-outline-danger" @click="deleteNote(todo.id)"> Delete </button>
+     </li>
+    </ul>
     </div>
   </div>
 </template>
@@ -54,7 +57,12 @@ export default {
       });
 
       this.newTodo = '';
+    },
+
+    deleteNote (id) {
+      todosCollection.doc(id).delete()
     }
+
   }
 }
 

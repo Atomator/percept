@@ -1,3 +1,4 @@
+// Import firebase to connect to database and authentication features
 import firebase from 'firebase'
 
 const firebaseConfig = {
@@ -15,19 +16,23 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-// Connect to firestore
-
+// Initilize the db and todos collection
 var db = null
 var todosCollection = null
 
+// Only create the collection if the user is connect to the database so the uid is not null
 firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        db = firebase.firestore();
-        todosCollection = db.collection("todos").doc(firebase.auth().currentUser.uid).collection("user-todos")
-    } else {
-      // No user is signed in.
-    }
-  });
+  if (user) {
+      // Get the database
+      db = firebase.firestore();
 
+      // Create a new collection that contains the user todos; needs to user id as document
+      todosCollection = db.collection("todos").doc(firebase.auth().currentUser.uid).collection("user-todos")
+  } else {
+    // No user is signed in.
+  }
+});
+
+// Export for access in other files
 export {db} 
 export {todosCollection}
