@@ -155,7 +155,7 @@ export default {
       }).catch((err) => {
         alert('Oops. ' + err.message)
       })
-    }
+    },
   }
 }
 </script>
