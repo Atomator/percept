@@ -9,7 +9,7 @@
       <input v-model="password" type="password" name="login">
       <input @click="login" type="submit" value="Log In"> 
       <br/>
-      <label style="font-weight:bold;" >or</label>
+      <label style="font-weight:bold;">or</label>
       <br/>
       <router-link to="/signup">
         <a type="submit" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;">Sign Up</a>
@@ -37,14 +37,11 @@ export default {
   },
   methods: {
     login: function() {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-        function () {
-          this.$router.replace('dashboard')
-        },
-        function (err) {
-          alert('Opps. ' + err.message)
-        }
-      )
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
+        this.$router.replace('dashboard')
+      }).catch((err) => {
+        alert('Oops. ' + err.message)
+      })
     },
     googleLogin: function() {
       const provider = new firebase.auth.GoogleAuthProvider();
@@ -61,7 +58,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 
 .btn-google:hover {
   color: #ffffff !important;

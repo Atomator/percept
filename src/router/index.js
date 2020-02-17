@@ -6,6 +6,7 @@ import Homepage from '@/pages/Homepage'
 import Signup from '@/pages/Signup'
 import Login from '@/pages/Login'
 import Dashboard from '@/pages/Dashboard'
+import DemoTask from '@/pages/DemoTask'
 
 
 Vue.use(Router)
@@ -36,6 +37,14 @@ const router = new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/demotask',
+      name: 'DemoTask',
+      component: DemoTask,
       meta: {
         requiresAuth: true
       }
