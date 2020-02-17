@@ -9,9 +9,9 @@
             <label for="login">Email</label>
           </div>
           <div class="col">
-            <input v-model="email" type="text" id="login" name="login"> 
+            <input type="text" v-model="auth.email" id="login" name="login"> 
           <div class="form-group" >
-          <input type="submit" value="Send"> 
+          <input type="submit" @click="resetPassword" value="Send"> 
           </div>
          </div>
          </div>
@@ -85,11 +85,15 @@ export default {
     }
   },
     methods: {
-    passwordRest: function(){
-    firebase.sendPasswordResetEmail(email).then(function() {
-    // Email sent.
-    }).catch(function(error) {
-    // An error happened.
+    resetPassword(){
+    const auth = firebase.auth();
+
+    auth.sendPasswordResetEmail(auth.email).then(() => {
+    
+        console.log('Email sent');
+
+    }).catch((error) => {
+        console.log(error);
     })
   },
 
