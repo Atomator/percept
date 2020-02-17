@@ -86,16 +86,16 @@ export default {
   },
     methods: {
     resetPassword(){
-    const auth = firebase.auth();
+        const auth = firebase.auth();
 
-    auth.sendPasswordResetEmail(auth.email).then(() => {
-    
-        console.log('Email sent');
+        auth.sendPasswordResetEmail(auth.email).then(() => {
 
-    }).catch((error) => {
-        console.log(error);
-    })
-  },
+            console.log('Email sent');
+
+        }).catch((error) => {
+            console.log(error);
+        })
+     },
 
   }
 
