@@ -9,7 +9,7 @@
             <label for="login">Email</label>
           </div>
           <div class="col">
-            <input type="text" v-model="auth.email" id="login" name="login"> 
+            <input type="text" v-model="email" id="login" name="login"> 
           <div class="form-group" >
           <input type="submit" @click="resetPassword" value="Send"> 
           </div>
@@ -88,12 +88,12 @@ export default {
     resetPassword(){
         const auth = firebase.auth();
 
-        auth.sendPasswordResetEmail(auth.email).then(() => {
-
-            console.log('Email sent');
-
-        }).catch((error) => {
-            console.log(error);
+        auth.sendPasswordResetEmail(this.email).then(
+        function() {
+            alert("Password reset has been sent");
+        },
+        function (err) {
+            alert("Oops, your email hasn't sent");
         })
      },
 

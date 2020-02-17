@@ -19,9 +19,11 @@
             <input type="password" id="password" name="login"> 
           </div>
           
-        <div class="col" style="margin-top:-10px;">
-            <a href="#" style="display:inline-block;text-decoration:underline;font-size:12px;color:#80C0f7;text-align:left;width:100%;margin-bottom:15px;margin-top:-20px;">Forgot Password</a> 
-          </div>
+          <router-link to='/forgot-password'>
+            <div class="col" style="margin-top:-10px;">
+              <a href="#" style="display:inline-block;text-decoration:underline;font-size:12px;color:#80C0f7;text-align:left;width:100%;margin-bottom:15px;margin-top:-20px;">Forgot Password</a> 
+            </div>
+          </router-link>  
 
           <div class="form-group" >
           <input type="submit" value="Login"> 
@@ -150,11 +152,14 @@ export default {
     googleLogin: function() {
       const provider = new firebase.auth.GoogleAuthProvider();
 
-      firebase.auth().signInWithPopup(provider).then(() => {
+      firebase.auth().signInWithPopup(provider).then(
+      function () {
         this.$router.replace('dashboard')
-      }).catch((err) => {
+      },
+      function (err) {
         alert('Oops. ' + err.message)
-      })
+      }
+      )
     },
   }
 }
