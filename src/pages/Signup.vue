@@ -149,12 +149,36 @@ input[type=text]:focus {
 
 
 <script>
-export default {
-  name: 'Signup',
-  props: {
-    msg: String
+  import firebase from 'firebase'
+
+  export default {
+    name: 'Signup',
+    data() {
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      signUp: function() {
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+          function () {
+            this.$router.replace('dashboard')
+          },
+          function (err) {
+            alert('Oops. ' + err.message)
+          }
+        )
+      },
+      googleLogin: function() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth().signInWithPopup(provider).then(() => {
+          this.$router.replace('dashboard')
+        }).catch((err) => {
+          alert('Oops. ' + err.message)
+        })
+      }
+    }
   }
-}
 </script>
-
-
