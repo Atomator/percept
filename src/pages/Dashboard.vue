@@ -9,6 +9,19 @@
       </div>
       <div class="col">
         <h1 class="text-dark font-weight-bold">Dashboard</h1>
+        <FullCalendar
+          class="demo-app-calendar"
+          ref="fullCalendar"
+          defaultView="timeGridWeek"
+          :header="{
+            left: 'prev,next today',
+            center: 'title',
+            right: ''
+          }"
+          :plugins="calendarPlugins"
+          :weekends="calendarWeekends"
+          :events="calendarEvents"
+        />
       </div>
     </div>
   </div>
@@ -16,9 +29,30 @@
 
 <script>
 import firebase from 'firebase'
+import FullCalendar from "@fullcalendar/vue";
+import timeGridPlugin from "@fullcalendar/timegrid";
+
+// Must manually include stylesheets for each plugin
+import "@fullcalendar/core/main.css";
+import "@fullcalendar/timegrid/main.css";
 
 export default {
   name: 'Dashboard',
+  components: {
+    FullCalendar
+  },
+  data: () => ({
+    calendarPlugins: [
+      // plugins must be defined in the JS
+      timeGridPlugin
+    ],
+    calendarWeekends: true,
+    calendarEvents: [
+      // initial event data
+      { title: "Event Now", start: new Date() },
+      { title: "Event Now", start: new Date() }
+    ]
+  }),
   methods: {
     logout: function() {
       firebase.auth().signOut().then(() => {
