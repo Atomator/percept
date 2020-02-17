@@ -16,5 +16,18 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
 // Connect to firestore
-export const db = firebase.firestore();
-export const todosCollection = db.collection('todos');
+
+var db = null
+var todosCollection = null
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        db = firebase.firestore();
+        todosCollection = db.collection("todos").doc(firebase.auth().currentUser.uid).collection("user-todos")
+    } else {
+      // No user is signed in.
+    }
+  });
+
+export {db} 
+export {todosCollection}

@@ -24,7 +24,6 @@
 </template>
 
 <script>
-
 import { todosCollection } from '../store/firebase';
 
 export default {
