@@ -59,10 +59,8 @@ export default {
     }
   },
   mounted () {
-    setTimeout(() => {
-        let calendarApi = this.$refs.fullCalendar.getApi();
-        calendarApi.setOption('height', 'parent');
-    }, 500);
+    let calendarApi = this.$refs.fullCalendar.getApi();
+    calendarApi.setOption('height', 'parent');
   }
 }
 </script>
