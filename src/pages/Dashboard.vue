@@ -18,7 +18,6 @@
             :plugins="calendarPlugins"
             :events="calendarEvents"
             :height="500"
-            :scrollTime="currentHour"
           />
         </div>
         <div v-if="showModal">
@@ -53,6 +52,7 @@
 import firebase from 'firebase'
 import FullCalendar from "@fullcalendar/vue"
 import timeGridPlugin from "@fullcalendar/timegrid"
+import '../styles/datetimepicker.css'
 
 // Must manually include stylesheets for each plugin
 import "@fullcalendar/core/main.css"
@@ -69,7 +69,6 @@ export default {
   data: () => ({
     whichActive: 'task',
     showModal: false,
-    currentHour: '22:00:00',
     calendarPlugins: [
       // plugins must be defined in the JS
       timeGridPlugin
@@ -89,10 +88,10 @@ export default {
     }
   },
   mounted () {
-    this.currentHour = new Date().getHours() + ':00'
-    console.log(new Date())
     let calendarApi = this.$refs.fullCalendar.getApi()
     calendarApi.setOption('height', 'parent')
+    let currentHour = (new Date().getHours() + ':00').toString()
+    calendarApi.scrollToTime(currentHour)
   }
 }
 </script>
