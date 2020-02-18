@@ -18,9 +18,31 @@
             :plugins="calendarPlugins"
             :events="calendarEvents"
             :height="500"
-            :scrollTime="currentHour"
           />
         </div>
+        <div v-if="showModal">
+          <div class="card primary-input" style="width: 18rem;">
+            <div class="card-body">
+              <ul class="nav justify-content-center" style="margin-bottom: 32px;">
+                <li class="nav-item">
+                  <a @click="whichActive = 'task'" :class="{'active': (whichActive == 'task')}" class="nav-link" href="#">Task</a>
+                </li>
+                <li class="nav-item">
+                  <a @click="whichActive = 'tag'" :class="{'active': (whichActive == 'tag')}" class="nav-link" href="#">Tag</a>
+                </li>
+                <li class="nav-item">
+                  <a @click="whichActive = 'open'" :class="{'active': (whichActive == 'open')}" class="nav-link" href="#">Open</a>
+                </li>
+              </ul>
+              <TaskInput v-if="whichActive == 'task'"></TaskInput>
+              <button @click="showModal = false" href="#" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+        <button @click="showModal = !showModal" class="btn btn-round btn-lg btn-primary">
+          <i v-if="!showModal" class="fas fa-plus text-light"></i>
+          <i v-else class="fas fa-times text-light"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -28,20 +50,25 @@
 
 <script>
 import firebase from 'firebase'
-import FullCalendar from "@fullcalendar/vue";
-import timeGridPlugin from "@fullcalendar/timegrid";
+import FullCalendar from "@fullcalendar/vue"
+import timeGridPlugin from "@fullcalendar/timegrid"
+import '../styles/datetimepicker.css'
 
 // Must manually include stylesheets for each plugin
-import "@fullcalendar/core/main.css";
-import "@fullcalendar/timegrid/main.css";
+import "@fullcalendar/core/main.css"
+import "@fullcalendar/timegrid/main.css"
+
+import TaskInput from "../components/TaskInput"
 
 export default {
   name: 'Dashboard',
   components: {
-    FullCalendar
+    FullCalendar,
+    TaskInput
   },
   data: () => ({
-    currentHour: '22:00:00',
+    whichActive: 'task',
+    showModal: false,
     calendarPlugins: [
       // plugins must be defined in the JS
       timeGridPlugin
@@ -49,7 +76,7 @@ export default {
     calendarWeekends: true,
     calendarEvents: [
       // initial event data
-      { title: "Event Now", start: new Date() },
+      { title: "Event Dope", start: "2020-02-18T02:06:00.000Z" },
       { title: "Event Now", start: new Date(), color: "red" }
     ]
   }),
@@ -61,9 +88,10 @@ export default {
     }
   },
   mounted () {
-    this.currentHour = new Date().getHours() + ':00'
     let calendarApi = this.$refs.fullCalendar.getApi()
     calendarApi.setOption('height', 'parent')
+    let currentHour = (new Date().getHours() + ':00').toString()
+    calendarApi.scrollToTime(currentHour)
   }
 }
 </script>
@@ -88,6 +116,21 @@ export default {
   margin: 15px;
 }
 
+.btn-round {
+  width: 64px;
+  height: 64px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 18px;
+  line-height: 1.33;
+  text-align: center;
+  box-shadow: 5px 5px 25px #80C0F7;
+  position: fixed;
+  bottom: 32px;
+  right: 64px; 
+  z-index: 1;
+}
+
 .section {
   min-height: 100vh;
   margin-top: -60px;
@@ -100,6 +143,28 @@ export default {
 .main {
   padding-left: 128px;
   padding-right: 64px;
+}
+
+.primary-input {
+  position: fixed;
+  z-index: 2;
+  bottom: 32px;
+  right: 172px; 
+  display: table;
+  transition: opacity .3s ease;
+  box-shadow: 15px 0px 25px #00000029;
+  padding: 16px;
+  border-radius: 32px;
+  border: none;
+}
+
+.active {
+  font-weight: 900;
+  /* color: #373F47; */
+}
+
+.btn-primary, .btn-primary:hover {
+  color: white;
 }
 
 </style>
