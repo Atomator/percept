@@ -1,11 +1,13 @@
 <template>
   <div>
     <label>Name</label>
-    <input type="text" class="form-control">
-    <label>Tag</label>
-    <input type="text" class="form-control">
+    <input v-model="name" type="text" class="form-control">
+    <label class="label">Tag</label>
+    <div class="v-select">
+      <v-select v-model="tag" :options="['Canada', 'United States']"></v-select>
+    </div>
     <label>Duration</label>
-    <input type="text" class="form-control">
+    <input type="text" v-model="duration" class="form-control">
     <label>Due Date</label>
     <datetime type="datetime" v-model="dateTime" class="datetime"></datetime>
     <p>{{dateTime}}</p>
@@ -16,6 +18,9 @@
 export default {
   name: 'TaskInput',
   data: () => ({
+      name: '',
+      tag: '',
+      duration: '',
       dateTime: ''
   })
 }
@@ -29,7 +34,15 @@ label {
     font-weight: 500;
 }
 
-input {
-    margin-bottom: 32px;
+.label {
+  float: none !important;
 }
+
+input, .v-select {
+  margin-bottom: 32px;
+}
+
+.v-select {
+}
+
 </style>

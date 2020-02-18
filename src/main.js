@@ -16,6 +16,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import { Datetime } from 'vue-datetime'
 import 'vue-datetime/dist/vue-datetime.css'
 import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
 
 Vue.config.productionTip = false
 
