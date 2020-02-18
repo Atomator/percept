@@ -1,27 +1,25 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="sidebar col-3 bg-light ">
+    <div class="row section">
+      <div class="sidebar col-3 bg-light">
         <router-link to="/demotask">
             <button class="btn btn-dark">Try Demo Task</button>
         </router-link>
         <button @click="logout" class="btn btn-primary">Logout</button>
       </div>
-      <div class="col">
-        <h1 class="text-dark font-weight-bold">Dashboard</h1>
-        <FullCalendar
-          class="demo-app-calendar"
-          ref="fullCalendar"
-          defaultView="timeGridWeek"
-          :header="{
-            left: 'prev,next today',
-            center: 'title',
-            right: ''
-          }"
-          :plugins="calendarPlugins"
-          :weekends="calendarWeekends"
-          :events="calendarEvents"
-        />
+      <div class="main col">
+        <div class="row header">
+          <h1 class="text-dark font-weight-bold">Dashboard</h1>
+        </div>
+        <div class="row calendar">
+          <FullCalendar
+            ref="fullCalendar"
+            defaultView="timeGridWeek"
+            :plugins="calendarPlugins"
+            :events="calendarEvents"
+            :height="250"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +48,7 @@ export default {
     calendarEvents: [
       // initial event data
       { title: "Event Now", start: new Date() },
-      { title: "Event Now", start: new Date() }
+      { title: "Event Now", start: new Date(), color: "red" }
     ]
   }),
   methods: {
@@ -59,12 +57,26 @@ export default {
         this.$router.replace('login')
       })
     }
+  },
+  mounted () {
+    setTimeout(() => {
+        let calendarApi = this.$refs.fullCalendar.getApi();
+        calendarApi.setOption('height', 'parent');
+    }, 500);
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.calendar {
+  height: 60vh;
+}
+
+.header {
+  height: 30vh;
+}
 
 .sidebar {
   border-radius: 0px 32px 32px 0px;   
@@ -75,13 +87,18 @@ export default {
   margin: 15px;
 }
 
-.row {
+.section {
   min-height: 100vh;
   margin-top: -60px;
 }
 
 .col, .col-3 {
   padding-top: 60px;
+}
+
+.main {
+  padding-left: 128px;
+  padding-right: 64px;
 }
 
 </style>
