@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <div class="headDiv">
+    <h2>Smart Web App</h2>
+    <% if(!currentUser){ %>
+      <button onclick="window.location='/login';">Login</button>
+      <button onclick="window.location='/register';">Register</button>
+    <% }else{ %>
+      <h3>Logged in as <%= currentUser.username %></h3>
+      <button>Logout</button>
+    <% } %>
+  </div>
