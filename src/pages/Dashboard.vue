@@ -17,7 +17,8 @@
             defaultView="timeGridWeek"
             :plugins="calendarPlugins"
             :events="calendarEvents"
-            :height="250"
+            :height="500"
+            :scrollTime="currentHour"
           />
         </div>
       </div>
@@ -40,6 +41,7 @@ export default {
     FullCalendar
   },
   data: () => ({
+    currentHour: '22:00:00',
     calendarPlugins: [
       // plugins must be defined in the JS
       timeGridPlugin
@@ -59,8 +61,9 @@ export default {
     }
   },
   mounted () {
-    let calendarApi = this.$refs.fullCalendar.getApi();
-    calendarApi.setOption('height', 'parent');
+    this.currentHour = new Date().getHours() + ':00'
+    let calendarApi = this.$refs.fullCalendar.getApi()
+    calendarApi.setOption('height', 'parent')
   }
 }
 </script>
