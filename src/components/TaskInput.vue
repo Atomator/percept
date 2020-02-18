@@ -30,19 +30,15 @@ export default {
 <style scoped>
 
 label {
-    float: left;
     font-weight: 500;
 }
 
-.label {
-  float: none !important;
+div {
+  text-align: left;
 }
 
 input, .v-select {
   margin-bottom: 32px;
-}
-
-.v-select {
 }
 
 </style>
