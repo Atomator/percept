@@ -10,6 +10,9 @@
     "watch-sass": "npm run build-sass -- --watch"
   },
   "dependencies": {
+    "@fullcalendar/core": "^4.4.0",
+    "@fullcalendar/timegrid": "^4.4.0",
+    "@fullcalendar/vue": "^4.4.0",
     "bootstrap": "^4.4.1",
     "core-js": "^3.3.2",
     "firebase": "^7.8.2",
