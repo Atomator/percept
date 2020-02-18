@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import './styles/datetimepicker.css'
+
 
 export default {
   name: 'app',
