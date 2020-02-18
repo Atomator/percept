@@ -58,7 +58,6 @@ export default {
 
       this.newTodo = '';
     },
-
     deleteNote (id) {
       todosCollection.doc(id).delete()
     }
