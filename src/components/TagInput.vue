@@ -2,7 +2,7 @@
   <div>
     <div class="inputs">
       <label>Duration</label>
-      <v-select ref="input" :options="['hope']" @search="getText()"></v-select>
+      <v-select ref="input" :options="['hope']" @search="getText()" @keyup.enter.native="addTag()"></v-select>
       <p>{{ name }}</p>
     </div>
   </div>
@@ -24,8 +24,12 @@ export default {
   methods: {
     getText() {
       this.name = this.$refs.input.$refs.search.value
+      console.log(this.$refs.input.$refs.search.value)
     },
-    addTask() {
+    dope() {
+      console.log("entered")
+    },
+    addTag() {
       tagsCollection.add({
         name: this.name
       })
