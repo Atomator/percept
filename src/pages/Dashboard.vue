@@ -6,6 +6,12 @@
             <button class="btn btn-dark">Try Demo Task</button>
         </router-link>
         <button @click="logout" class="btn btn-primary">Logout</button>
+        <ul class="list-group">
+          <li class="list-group-item" v-for="todo in todos" :key="todo.id">
+            {{todo.name}}
+            <button style="float: right;" class="btn btn-outline-danger" @click="deleteNote(todo.id)"> Delete </button>
+          </li>
+        </ul>
       </div>
       <div class="main col">
         <div class="row header">
@@ -17,11 +23,10 @@
             defaultView="timeGridWeek"
             :plugins="calendarPlugins"
             :events="calendarEvents"
-            :height="500"
           />
         </div>
-        <div v-if="showModal">
-          <div class="card primary-input" style="width: 18rem;">
+        <div class="modal-mask" v-if="showModal" @click="showModal = false">
+          <div class="card primary-input" style="width: 18rem;" @click.stop>
             <div class="card-body">
               <ul class="nav justify-content-center" style="margin-bottom: 32px;">
                 <li class="nav-item">
@@ -35,7 +40,6 @@
                 </li>
               </ul>
               <TaskInput v-if="whichActive == 'task'"></TaskInput>
-              <button @click="showModal = false" href="#" class="btn btn-primary">Submit</button>
             </div>
           </div>
         </div>
@@ -59,6 +63,8 @@ import "@fullcalendar/core/main.css"
 import "@fullcalendar/timegrid/main.css"
 
 import TaskInput from "../components/TaskInput"
+import { todosCollection } from '../store/firebase';
+
 
 export default {
   name: 'Dashboard',
@@ -67,6 +73,7 @@ export default {
     TaskInput
   },
   data: () => ({
+    todos: [],
     whichActive: 'task',
     showModal: false,
     calendarPlugins: [
@@ -80,11 +87,19 @@ export default {
       { title: "Event Now", start: new Date(), color: "red" }
     ]
   }),
+  firestore() {
+    return {
+      todos: todosCollection.orderBy('createdAt', 'desc')
+    }
+  },
   methods: {
     logout: function() {
       firebase.auth().signOut().then(() => {
         this.$router.replace('login')
       })
+    },
+    deleteNote (id) {
+      todosCollection.doc(id).delete()
     }
   },
   mounted () {
@@ -147,7 +162,7 @@ export default {
 
 .primary-input {
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   bottom: 32px;
   right: 172px; 
   display: table;
@@ -165,6 +180,17 @@ export default {
 
 .btn-primary, .btn-primary:hover {
   color: white;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+  transition: opacity .3s ease;
 }
 
 </style>
