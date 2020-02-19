@@ -40,15 +40,57 @@
 </div>
 </template>
 
-<style>
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  height: 100%;
-  width:100%;
- 
+<script>
+  import firebase from 'firebase'
+
+  export default {
+    name: 'Signup',
+    data() {
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      signUp: function() {
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+          function () {
+            this.$router.replace('dashboard')
+          },
+          function (err) {
+            alert('Oops. ' + err.message)
+          }
+        )
+      },
+      googleLogin: function() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        firebase.auth().signInWithPopup(provider).then(() => {
+          this.$router.replace('dashboard')
+        }).catch((err) => {
+          alert('Oops. ' + err.message)
+        })
+      }
+    }
+  }
+</script>
+
+
+<style scoped>
+
+.btn-google:hover {
+  color: #ffffff !important;
 }
 
+.btn-google {
+  color: #80C0F7 !important;
+}
+
+body {
+  height: 100%;
+  width:100%;
+}
 
 
 input[type=button], input[type=submit], input[type=reset]  {
@@ -104,7 +146,7 @@ input[type=text], input[type=password]{
   width:100%;
 }
 
-input[type=text]:focus {
+input:focus {
   border-radius:20px;
   background-color: #ffffff;
   color: #0d0d0d;
@@ -121,13 +163,6 @@ input[type=text]:focus {
   transition: all 0.5s ease-in-out;
   width:100%;
 }
-
-
-
-
-
-
-
 </style>
 
 

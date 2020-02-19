@@ -39,13 +39,54 @@
 </div>
 </template>
 
-<style>
+
+<script>
+import firebase from 'firebase'
+
+export default {
+  name: 'Login',
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: function() {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
+        this.$router.replace('dashboard')
+      }).catch((err) => {
+        alert('Oops. ' + err.message)
+      })
+    },
+    googleLogin: function() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      firebase.auth().signInWithPopup(provider).then(() => {
+        this.$router.replace('dashboard')
+      }).catch((err) => {
+        alert('Oops. ' + err.message)
+      })
+    }
+  }
+}
+</script>
+
+
+
+<style scoped>
+
+.btn-google:hover {
+  color: #ffffff !important;
+}
+
+.btn-google {
+  color: #80C0F7 !important;
+}
 
 body {
-  font-family: "Open Sans", sans-serif;
   height: 100%;
   width:100%;
- 
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
