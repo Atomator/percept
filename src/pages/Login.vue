@@ -9,28 +9,28 @@
             <label for="login">Email</label>
           </div>
           <div class="col">
-            <input type="text" id="login" name="login"> 
+            <input v-model="email" type="text" id="login" name="login"> 
           </div>
            <div class="col-12 col-sm-1 col-sm-2 font-weight-bold" >
             <label for="password">Password</label>
           </div>
           
           <div class="col">
-            <input type="password" id="password" name="login"> 
+            <input v-model="password" type="password" id="password" name="login"> 
           </div>
           
         <div class="col" style="margin-top:-10px;">
-            <a href="#" style="display:inline-block;text-decoration:underline;font-size:12px;color:#80C0f7;text-align:left;width:100%;margin-bottom:15px;margin-top:-20px;">Forgot Password</a> 
+            <a href="#/Forget" style="display:inline-block;text-decoration:underline;font-size:12px;color:#80C0f7;text-align:left;width:100%;margin-bottom:15px;margin-top:-20px;">Forgot Password</a> 
           </div>
 
           <div class="form-group" >
-          <input type="submit" value="Login"> 
+          <input @click="Login" type="submit" value="Login"> 
           </div>
        <label style="font-weight:bold;" >or</label>
        <br/>
-        <a href="#" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Sign Up</a>
+        <a href="#/Signup" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Sign Up</a>
       <div class="form-group">
-       <a role="button" class="btn-google btn btn-outline-primary" style="text-transform: none; margin-bottom: 15px;color:#80C0f7;"><img width="20px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" style="margin-bottom: 3px; margin-right: 5px;"> Login with Google </a>
+       <a @click="googleLogin" role="button" class="btn-google btn btn-outline-primary" style="text-transform: none; margin-bottom: 15px;color:#80C0f7;"><img width="20px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" style="margin-bottom: 3px; margin-right: 5px;"> Login with Google </a>
       </div>
          </div>
       </section>

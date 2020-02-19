@@ -10,28 +10,28 @@
             <label for="login">Email</label>
           </div>
           <div class="col">
-            <input type="text" id="login" name="login"> 
+            <input v-model="email" type="text" id="login" name="login"> 
           </div>
            <div class="col-12 col-sm-1 col-sm-2 font-weight-bold" >
             <label for="password">Password</label>
           </div>
           <div class="col" >
-            <input type="password" id="password" name="login"> 
+            <input v-model="password" type="password" id="password" name="login"> 
           </div>
            <div class="col-12 col-sm-1 col-sm-5 font-weight-bold" >
             <label for="c_password">Confirm Password</label>
           </div>
           <div class="col" >
-            <input type="password" id="c_password" name="login"> 
+            <input v-model="password2" type="password" id="c_password" name="login"> 
           </div>
           <div class="form-group" >
-          <input type="submit" value="Sign Up"> 
+          <input @click="signUp" type="submit" value="Sign Up"> 
           </div>
        <label style="font-weight:bold;" >or</label>
        <br/>
-       <a type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Log In</a>
+       <a href="#/Login" type="submit" value="Log In" style="display:inline-block;text-decoration:underline;margin-bottom:35px;font-size:20px;color:#80C0f7;">Log In</a>
       <div class="form-group">
-       <a role="button" class="btn-google btn btn-outline-primary" style="text-transform: none; margin-bottom: 15px;color:#80C0f7;"><img width="20px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" style="margin-bottom: 3px; margin-right: 5px;"> Sign Up with Google </a>
+       <a @click="googleLogin" role="button" class="btn-google btn btn-outline-primary" style="text-transform: none; margin-bottom: 15px;color:#80C0f7;"><img width="20px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" style="margin-bottom: 3px; margin-right: 5px;"> Sign Up with Google </a>
       </div>
          </div>
       </section>
@@ -125,23 +125,6 @@ input[type=text]:focus {
 
 
 
-.label1{
-  background-color: #ffffff;
-  color: #373F47;
-  text-align: left;
-  display: inline-block;
-  font-size: 16px;
-  width: 85%;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  margin-top:15px;
-  font-weight:bold;
-  margin-top:25px;
-  font-weight:bold;
-}
 
 
 
