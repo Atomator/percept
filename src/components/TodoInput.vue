@@ -23,7 +23,7 @@
 import { todosCollection } from '../store/firebase';
 
 export default {
-  name: 'TagInput',
+  name: 'TodoInput',
   data: () => ({
       name: '',
       tag: '',

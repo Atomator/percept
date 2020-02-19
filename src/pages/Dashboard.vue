@@ -39,7 +39,7 @@
                   <a @click="whichActive = 'open'" :class="{'active': (whichActive == 'open')}" class="nav-link" href="#">Open</a>
                 </li>
               </ul>
-              <TaskInput v-if="whichActive == 'task'"></TaskInput>
+              <TodoInput v-if="whichActive == 'task'"></TodoInput>
               <TagInput v-else-if="whichActive == 'tag'"></TagInput>
             </div>
           </div>
@@ -63,7 +63,7 @@ import '../styles/datetimepicker.css'
 import "@fullcalendar/core/main.css"
 import "@fullcalendar/timegrid/main.css"
 
-import TaskInput from "../components/TaskInput"
+import TodoInput from "../components/TodoInput"
 import TagInput from "../components/TagInput"
 import { todosCollection } from '../store/firebase';
 
@@ -72,7 +72,7 @@ export default {
   name: 'Dashboard',
   components: {
     FullCalendar,
-    TaskInput,
+    TodoInput,
     TagInput
   },
   data: () => ({

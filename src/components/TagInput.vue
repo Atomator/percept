@@ -2,7 +2,8 @@
   <div>
     <div class="inputs">
       <label>Duration</label>
-      <v-select v-model="duration" :options="durationsOptions"></v-select>
+      <v-select ref="input" :options="['hope']" @search="getText()"></v-select>
+      <p>{{ name }}</p>
     </div>
   </div>
 </template>
@@ -13,7 +14,7 @@
 
 
 // Used to connect to firebase database
-import { todosCollection } from '../store/firebase';
+import { tagsCollection } from '../store/firebase';
 
 export default {
   name: 'TaskInput',
@@ -21,13 +22,12 @@ export default {
       name: '',
   }),
   methods: {
-    addTodo() {
-      todosCollection.add({
-        name: this.name,
-        tag: this.tag,
-        duration: this.duration,
-        dateTime: this.dateTime,
-        createdAt: new Date()
+    getText() {
+      this.name = this.$refs.input.$refs.search.value
+    },
+    addTask() {
+      tagsCollection.add({
+        name: this.name
       })
       .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
