@@ -26,7 +26,7 @@
           />
         </div>
         <div class="modal-mask" v-if="showModal" @click="showModal = false">
-          <div class="card primary-input" style="width: 18rem;">
+          <div class="card primary-input" style="width: 18rem;" @click.stop>
             <div class="card-body">
               <ul class="nav justify-content-center" style="margin-bottom: 32px;">
                 <li class="nav-item">
@@ -162,7 +162,7 @@ export default {
 
 .primary-input {
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   bottom: 32px;
   right: 172px; 
   display: table;
@@ -184,7 +184,7 @@ export default {
 
 .modal-mask {
   position: fixed;
-  z-index: 9998;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
