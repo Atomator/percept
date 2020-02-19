@@ -5,6 +5,7 @@ var TaskSchema = new mongoose.Schema({
   title: String,
   description: String,
   dueDate: Date,
+  timeDue: String,
   importance: Number
 });
 

@@ -1,2 +1,25 @@
 <%- include("partials/header.ejs") %>
+<div class="bodyDiv">
+  <h1>New Task</h1>
+  <form action="/home/newTask" method="POST" autocomplete="off">
+    <div class="form-group">
+      <label for="#title">Title</label>
+      <input class="form-control" id="title" type="text" name="title" placeholder="Enter the Task Title">
+    </div>
+    <div class="form-group">
+      <label for="#des">Description</label>
+      <input class="form-control" id="des" type="text" name="description" placeholder="Description of Task">
+    </div>
+    <div class="form-group">
+      <label>Due Date</label>
+      <input class="form-control" id="dueDate" type="date" name="dueDate" placeholder="Due Date of Task">
+      <input class="form-control" type="time" name="time" placeholder="Time Due By">
+    </div>
+    <div class="form-group">
+      <label for="#imp">Importance</label>
+      <input class="form-control" id="imp" type="number" name="importance" placeholder="Importance from 1-5" min="1" max="5">
+    </div>
+    <button class="btn btn-success">Create</button>
+  </form>
+</div>
 <%- include("partials/footer.ejs") %>

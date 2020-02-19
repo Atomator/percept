@@ -1,0 +1,86 @@
+body{
+  font-family: 'Rubik', sans-serif;
+  color: #545454;
+}
+button{
+  font-family: 'Rubik', sans-serif;
+}
+input{
+  font-family: 'Rubik', sans-serif;
+}
+#hidden{
+  display: none;
+}
+a{
+  color: #545454;
+  transition: all 0.3s;
+  text-decoration: underline;
+}
+a:hover{
+  color: #545454;
+}
+.bodyDiv{
+  text-align: center;
+  margin: 1% auto;
+  width: 70%;
+  padding: 1%;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px #A9A9A9;
+}
+.logoutBtn:hover{
+  cursor: pointer;
+}
+.sideBar{
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0px 0px 10px #A9A9A9;
+}
+.profileDiv{
+  margin: 3% auto;
+  width: 70%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px #A9A9A9;
+  padding: 5%;
+}
+.newTaskBtn{
+  width: 8%;
+  padding: 1%;
+  border-radius: 100%;
+  border: none;
+  background-color: #64CBFF;
+  color: white;
+  transition: all 0.3s;
+  float: right;
+  margin: 3%;
+}
+.newTaskBtn:hover{
+  background-color: #01AAFF;
+  cursor: pointer;
+}
+.homeTable{
+  width: 100%;
+}
+.taskContainer{
+  text-align: center;
+  width: 30%;
+  margin: 0 auto;
+}
+.mainTask{
+  border-radius: 30px;
+  padding: 4%;
+  box-shadow: 0px 0px 10px #A9A9A9;
+}
+.smallTasks{
+  margin: 5%;
+  padding: 1%;
+  border: 1px solid white;
+  border-left-color: #64CBFF;
+  transition: all 0.3s;
+}
+.smallTasks:hover{
+  border-left-color: #FF647D;
+  cursor: pointer;
+}
+.pointerHover:hover{
+  cursor: pointer;
+}

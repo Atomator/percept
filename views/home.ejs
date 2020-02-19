@@ -1,11 +1,60 @@
 <%- include("partials/header.ejs") %>
-<button>New Task</button>
-<div>
-  <table>
-    <% for(var x = task.length - 1; x >= 0; x--){ %>
-      <td></td>
-    <% } %>
-  </table>
-</div>
-
+<table class="homeTable">
+  <tr>
+    <td class="sideBar">
+      <div class="profileDiv">
+        <h5 style="color: #64CBFF;"><%= currentUser.username %></h5>
+        <h6><%= task.length%> Remaining task<% if(task.length > 1 || task.length == 0){ %>s<% } %></h6>
+        <a class="logoutBtn" href='/logout'>Logout</a>
+      </div>
+      <h3 style="text-align: center;">Next Up</h3>
+      <% if(!task[1]){ %>
+        <h4 style="text-align: center;">Nothing Coming Up</h4>
+      <% } %>
+      <% for(var x = 1; x < 4; x++){ %>
+        <% if(task[x]){ %>
+          <div class="smallTasks" onclick="window.location='/home/viewTask/<%= task[x]._id %>';">
+            <h5><%= task[x].title %></h5>
+            <h6>Due: <%= task[x].dueDate.getMonth() + 1 %>/<%= task[x].dueDate.getDate() + 1 %>/<%= task[x].dueDate.getFullYear() %></h6>
+          </div>
+        <% } %>
+      <% }; %>
+      <% if(task.length > 4){ %>
+        <button class="btn btn-primary" id="revealBtn">More</button>
+      <% } %>
+      <div id="hidden">
+        <% for(var x = 4; x < task.length; x++){ %>
+          <% if(task[x]){ %>
+            <div class="smallTasks" onclick="window.location='/home/viewTask/<%= task[x]._id %>';">
+              <h5><%= task[x].title %></h5>
+              <h6>Due: <%= task[x].dueDate.getMonth() + 1 %>/<%= task[x].dueDate.getDate() + 1 %>/<%= task[x].dueDate.getFullYear() %></h6>
+            </div>
+          <% } %>
+        <% }; %>
+      <div>
+    </td>
+    <td class="homeBody">
+      <div class="taskContainer">
+        <h2>Current Task</h2>
+        <% if(task[0]){ %>
+          <div class="mainTask pointerHover" onclick="window.location='/home/viewTask/<%= task[0]._id %>';">
+            <h3 style="color: #64CBFF;"><%= task[0].title %></h3>
+            <h4>Due: <%= task[0].dueDate.getMonth() + 1 %>/<%= task[0].dueDate.getDate() + 1 %>/<%= task[0].dueDate.getFullYear() %></h4>
+          </div>
+        <% }else{ %>
+          <h4>No Current Tasks</h4>
+        <% } %>
+      </div>
+      <img src="/newTaskIcon.png" onclick="window.location='/home/newTask';" class="newTaskBtn">
+    </td>
+  </tr>
+</table>
+<script type="text/javascript">
+  var revealBtn = document.querySelector('#revealBtn'),
+      hiddenDiv = document.querySelector('#hidden');
+  revealBtn.addEventListener('click', function(){
+    hiddenDiv.style.display = 'block';
+    revealBtn.style.display = 'none';
+  });
+</script>
 <%- include("partials/footer.ejs") %>

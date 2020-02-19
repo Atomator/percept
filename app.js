@@ -77,9 +77,42 @@ app.get('/home', isLoggedIn, function(req, res){
     }else{
       res.render("home.ejs", {currentUser: req.user,task: task});
     }
-  });
+  }).sort('dueDate');
 });
 
 app.get('/home/newTask', isLoggedIn, function(req, res){
   res.render('newTask.ejs', {currentUser: req.user});
+});
+app.post('/home/newTask', isLoggedIn, function(req, res){
+  Task.create(req.body.task, function(err, task){
+    if(err){
+      console.log(err);
+    }else{
+      task.userId = req.user.username;
+      task.title = req.body.title;
+      task.description = req.body.description;
+      task.dueDate = req.body.dueDate;
+      task.timeDue = req.body.time;
+      task.importance = req.body.importance;
+      task.save();
+      res.redirect('/home');
+    }
+  });
+});
+app.get('/home/viewTask/:taskId', isLoggedIn, function(req, res){
+  Task.find({_id: req.params.taskId}, function(err, task){
+    if(err){
+      console.log(err);
+    }else{
+      res.render('viewTask.ejs',{currentUser: req.user,task: task});
+    }
+  });
+});
+app.post('/home/viewTask/deleteTask/:taskId', isLoggedIn, function(req, res){
+  Task.findOneAndRemove({_id: req.params.taskId}, function(err){
+    if(err){
+      console.log(err);
+    }
+    res.redirect('/home');
+  });
 });
