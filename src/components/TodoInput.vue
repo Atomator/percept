@@ -5,7 +5,7 @@
         <input v-model="name" type="text" class="form-control">
         <label class="label">Tag</label>
         <div class="v-select">
-        <v-select v-model="tag" :options="['Canada', 'United States']"></v-select>
+        <v-select v-model="tag" :options="['Canada', 'United States', 't','Canada', 'United States', 't','Canada', 'United States', 't','Canada', 'United States', 't','Canada', 'United States', 't']"></v-select>
         </div>
         <label>Duration</label>
         <v-select v-model="duration" :options="durationsOptions"></v-select>
