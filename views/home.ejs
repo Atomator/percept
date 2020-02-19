@@ -15,7 +15,7 @@
         <% if(task[x]){ %>
           <div class="smallTasks" onclick="window.location='/home/viewTask/<%= task[x]._id %>';">
             <h5><%= task[x].title %></h5>
-            <h6>Due: <%= task[x].dueDate.getMonth() + 1 %>/<%= task[x].dueDate.getDate() + 1 %>/<%= task[x].dueDate.getFullYear() %></h6>
+            <h6>Due: <%= task[x].dueDate.getMonth() + 1 %>/<%= task[x].dueDate.getDate() %>/<%= task[x].dueDate.getFullYear() %></h6>
           </div>
         <% } %>
       <% }; %>
@@ -27,7 +27,7 @@
           <% if(task[x]){ %>
             <div class="smallTasks" onclick="window.location='/home/viewTask/<%= task[x]._id %>';">
               <h5><%= task[x].title %></h5>
-              <h6>Due: <%= task[x].dueDate.getMonth() + 1 %>/<%= task[x].dueDate.getDate() + 1 %>/<%= task[x].dueDate.getFullYear() %></h6>
+              <h6>Due: <%= task[x].dueDate.getMonth() + 1 %>/<%= task[x].dueDate.getDate() %>/<%= task[x].dueDate.getFullYear() %></h6>
             </div>
           <% } %>
         <% }; %>
@@ -39,7 +39,7 @@
         <% if(task[0]){ %>
           <div class="mainTask pointerHover" onclick="window.location='/home/viewTask/<%= task[0]._id %>';">
             <h3 style="color: #64CBFF;"><%= task[0].title %></h3>
-            <h4>Due: <%= task[0].dueDate.getMonth() + 1 %>/<%= task[0].dueDate.getDate() + 1 %>/<%= task[0].dueDate.getFullYear() %></h4>
+            <h4>Due: <%= task[0].dueDate.getMonth() + 1 %>/<%= task[0].dueDate.getDate() %>/<%= task[0].dueDate.getFullYear() %></h4>
           </div>
         <% }else{ %>
           <h4>No Current Tasks</h4>
