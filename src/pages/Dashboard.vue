@@ -40,6 +40,7 @@
                 </li>
               </ul>
               <TaskInput v-if="whichActive == 'task'"></TaskInput>
+              <TagInput v-else-if="whichActive == 'tag'"></TagInput>
             </div>
           </div>
         </div>
@@ -63,6 +64,7 @@ import "@fullcalendar/core/main.css"
 import "@fullcalendar/timegrid/main.css"
 
 import TaskInput from "../components/TaskInput"
+import TagInput from "../components/TagInput"
 import { todosCollection } from '../store/firebase';
 
 
@@ -70,7 +72,8 @@ export default {
   name: 'Dashboard',
   components: {
     FullCalendar,
-    TaskInput
+    TaskInput,
+    TagInput
   },
   data: () => ({
     todos: [],

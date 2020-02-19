@@ -38,7 +38,4 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 // Export for access in other files
-export {db} 
-export {todosCollection}
-export {tagsCollection}
-export {openCollection}
+export {db, todosCollection, tagsCollection, openCollection} 
