@@ -2,7 +2,11 @@
   <div>
     <div class="inputs">
       <label>Duration</label>
-      <v-select ref="input" :options="['hope']" @search="getText()" @keyup.enter.native="addTag()"></v-select>
+      <v-select ref="input" label="name" :options="tags" @search="getText()" @keyup.enter.native="addTag()">
+          <template slot="option" slot-scope="option">
+            {{ option.name }}
+          </template>
+      </v-select>
       <p>{{ name }}</p>
     </div>
   </div>
@@ -20,27 +24,30 @@ export default {
   name: 'TaskInput',
   data: () => ({
       name: '',
+      tags: ''
   }),
+  firestore() {
+    return {
+      tags: tagsCollection
+    }
+  },
   methods: {
     getText() {
       this.name = this.$refs.input.$refs.search.value
-      console.log(this.$refs.input.$refs.search.value)
-    },
-    dope() {
-      console.log("entered")
     },
     addTag() {
-      tagsCollection.add({
-        name: this.name
-      })
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.log("Error adding document: ", error);
-      });
-
-      this.newTodo = '';
+      if (this.tags.indexOf(this.name) == -1)
+      {
+        tagsCollection.add({
+          name: this.name
+        })
+        .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function(error) {
+          console.log("Error adding document: ", error);
+        });
+      }
     }
   }
 }
