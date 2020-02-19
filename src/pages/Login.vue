@@ -24,7 +24,7 @@
           </div>
 
           <div class="form-group" >
-          <input @click="Login" type="submit" value="Login"> 
+          <input @click="login" type="submit" value="Login"> 
           </div>
        <label style="font-weight:bold;" >or</label>
        <br/>
