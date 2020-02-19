@@ -8,7 +8,7 @@
         <v-select v-model="tag" :options="['Canada', 'United States']"></v-select>
         </div>
         <label>Duration</label>
-        <input type="text" v-model="duration" class="form-control">
+        <v-select v-model="duration" :options="durationsOptions"></v-select>
         <label>Due Date</label>
         <datetime type="datetime" v-model="dateTime" class="datetime"></datetime>
         <p>{{dateTime}}</p>
@@ -27,7 +27,15 @@ export default {
       name: '',
       tag: '',
       duration: '',
-      dateTime: ''
+      dateTime: '',
+      durationsOptions: [
+        15,
+        30,
+        45,
+        60,
+        90,
+        120
+      ]
   }),
   methods: {
     addTodo() {

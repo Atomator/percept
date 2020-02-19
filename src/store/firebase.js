@@ -19,6 +19,8 @@ firebase.analytics();
 // Initilize the db and todos collection
 var db = null
 var todosCollection = null
+var tagsCollection = null
+var openCollection = null
 
 // Only create the collection if the user is connect to the database so the uid is not null
 firebase.auth().onAuthStateChanged(function(user) {
@@ -28,6 +30,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       // Create a new collection that contains the user todos; needs to user id as document
       todosCollection = db.collection("todos").doc(firebase.auth().currentUser.uid).collection("user-todos")
+      tagsCollection = db.collection("tags").doc(firebase.auth().currentUser.uid).collection("user-tags")
+      openCollection = db.collection("open").doc(firebase.auth().currentUser.uid).collection("open-tags")
   } else {
     // No user is signed in.
   }
@@ -36,3 +40,5 @@ firebase.auth().onAuthStateChanged(function(user) {
 // Export for access in other files
 export {db} 
 export {todosCollection}
+export {tagsCollection}
+export {openCollection}

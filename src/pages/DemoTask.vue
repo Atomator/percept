@@ -18,7 +18,7 @@
     <div>
     <ul class="list-group">
       <li class="list-group-item" v-for="todo in todos" :key="todo.id">
-        {{todo.text}}
+        {{todo.name}}
         <button style="float: right;" class="btn btn-outline-danger" @click="deleteNote(todo.id)"> Delete </button>
      </li>
     </ul>
@@ -45,8 +45,7 @@ export default {
   methods: {
     addTodo() {
       todosCollection.add({
-        text: this.newTodo,
-        completed: false,
+        name: this.newTodo,
         createdAt: new Date()
       })
       .then(function(docRef) {

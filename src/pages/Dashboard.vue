@@ -25,7 +25,7 @@
             :events="calendarEvents"
           />
         </div>
-        <div v-if="showModal">
+        <div class="modal-mask" v-if="showModal" @click="showModal = false">
           <div class="card primary-input" style="width: 18rem;">
             <div class="card-body">
               <ul class="nav justify-content-center" style="margin-bottom: 32px;">
@@ -180,6 +180,17 @@ export default {
 
 .btn-primary, .btn-primary:hover {
   color: white;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+  transition: opacity .3s ease;
 }
 
 </style>
