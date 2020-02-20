@@ -19,10 +19,11 @@
 
 <script>
 // Used to connect to firebase database
+// import { tagsCollection } from '../store/firebase';
 import { todosCollection } from '../store/firebase';
 
 export default {
-  name: 'TaskInput',
+  name: 'TodoInput',
   data: () => ({
       name: '',
       tag: '',
