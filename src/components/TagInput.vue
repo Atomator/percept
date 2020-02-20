@@ -44,10 +44,8 @@ export default {
     }
   },
   watch: {
-    entry () {
+    entry () {      
      if (this.tags.filter(tag => (tag.name === this.name)).length == 0 && this.name != '') {
-       console.log("New Input")
-       console.log(this.tags.filter(tag => (tag.name === this.name)))
         tagsCollection.add({
           name: this.name,
           label: this.name,
@@ -71,9 +69,10 @@ export default {
       this.name = this.$refs.input.$refs.search.value
     },
     deleteTag (id) {
+      this.$refs.input.open = true
       tagsCollection.doc(id).delete()
-      this.entry = ''
-      this.name = ''
+      console.log("Document removed with ID: ", id)
+
     }
   }
 }
