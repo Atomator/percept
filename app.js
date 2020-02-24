@@ -75,6 +75,7 @@ app.get('/home', isLoggedIn, function(req, res){
     if(err){
       console.log(err);
     }else{
+      console.log('Ha: ' + task[0].dueDate);
       res.render("home.ejs", {currentUser: req.user,task: task});
     }
   }).sort('dueDate');
@@ -114,5 +115,40 @@ app.post('/home/viewTask/deleteTask/:taskId', isLoggedIn, function(req, res){
       console.log(err);
     }
     res.redirect('/home');
+  });
+});
+
+app.get('/home/viewTask/editTask/:taskId', isLoggedIn, function(req, res){
+  Task.find({_id: req.params.taskId}, function(err, task){
+    if(err){
+      console.log(err);
+    }else{
+      res.render('editTask.ejs',{currentUser: req.user,task: task});
+    }
+  });
+});
+app.post('/home/viewTask/editTask/:taskId', isLoggedIn, function(req, res){
+  Task.find({_id: req.params.taskId}, function(err, task){
+    if(err){
+      console.log(err);
+    }else{
+      if(req.body.title){
+        task[0].title = req.body.title;
+      }
+      if(req.body.description){
+        task[0].description = req.body.description;
+      }
+      if(req.body.dueDate){
+        task[0].dueDate = req.body.dueDate;
+      }
+      if(req.body.dueTime){
+        task[0].timeDue = req.body.time;
+      }
+      if(req.body.importance){
+        task[0].importance = req.body.importance;
+      }
+      task[0].save();
+    }
+    res.redirect('/home/viewTask/' + req.params.taskId);
   });
 });

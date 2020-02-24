@@ -4,7 +4,7 @@
 <div class="bodyDiv">
   <h2 style="text-decoration: underline; color: #01AAFF;"><%= task[0].title %></h2>
   <h3><%= task[0].description %></h3>
-  <h2>Due: <%= task[0].dueDate.getMonth() + 1 %>/<%= task[0].dueDate.getDate() %>/<%= task[0].dueDate.getFullYear() %> @ <%= task[0].timeDue %></h2>
+  <h2>Due: <%= task[0].dueDate.getMonth() + 1 %>/<%= task[0].dueDate.getDate() + 1 %>/<%= task[0].dueDate.getFullYear() %> @ <%= task[0].timeDue %></h2>
   <h4>Importance: <span style="color: <%= colors[task[0].importance - 1] %>;"><%= task[0].importance %></span></h4>
   <button class="btn btn-primary" onclick="window.location='/home';">Home</button>
   <button class="btn btn-warning" onclick="window.location='/home/viewTask/editTask/<%= task[0]._id %>';">Edit</button>

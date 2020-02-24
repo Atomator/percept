@@ -45,6 +45,37 @@
           <h4>No Current Tasks</h4>
         <% } %>
       </div>
+      <table class="taskTable">
+          <tr>
+            <th class="taskTh">Sunday</th>
+            <th class="taskTh">Monday</th>
+            <th class="taskTh">Tuesday</th>
+            <th class="taskTh">Wednesday</th>
+            <th class="taskTh">Thursday</th>
+            <th class="taskTh">Friday</th>
+            <th class="taskTh">Saturday</th>
+          </tr>
+          <% var month = new Date(new Date().getMonth() + 1 + '/1/' + new Date().getFullYear()); %>
+          <% var weekDay = month.getDay(); %>
+          <% monthDay = 1; %>
+          <% for(var x = 0; x < 5; x++){ %>
+            <tr>
+              <% for(var y = 0; y < 7; y++){ %>
+                <td class="taskTd">
+                  <h6 style="text-align: left;"><%  if(weekDay == 0){ %><%= monthDay %> <% monthDay++ }else{weekDay--} %></h6>
+                  <% for(var dayCheck = 0; dayCheck < task.length; dayCheck++){ %>
+                    <% if(task[dayCheck].dueDate.getDate() + 2 == monthDay){ %>
+                      <div class="tableTasks" onclick="window.location='/home/viewTask/<%= task[dayCheck]._id %>';">
+                        <h4><%= task[dayCheck].title %></h4>
+                        <h6><%= task[dayCheck].timeDue %></h6>
+                      </div>
+                    <% } %>
+                  <% } %>
+                </td>
+              <% } %>
+            </tr>
+          <% } %>
+      </table>
       <img src="/newTaskIcon.png" onclick="window.location='/home/newTask';" class="newTaskBtn">
     </td>
   </tr>
