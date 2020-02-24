@@ -64,7 +64,7 @@
                 <td class="taskTd">
                   <h6 style="text-align: left;"><%  if(weekDay == 0){ %><%= monthDay %> <% monthDay++ }else{weekDay--} %></h6>
                   <% for(var dayCheck = 0; dayCheck < task.length; dayCheck++){ %>
-                    <% if(task[dayCheck].dueDate.getDate() + 2 == monthDay){ %>
+                    <% if(task[dayCheck].dueDate.getDate() + 1 == monthDay){ %>
                       <div class="tableTasks" onclick="window.location='/home/viewTask/<%= task[dayCheck]._id %>';">
                         <h4><%= task[dayCheck].title %></h4>
                         <h6><%= task[dayCheck].timeDue %></h6>
