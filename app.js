@@ -75,7 +75,6 @@ app.get('/home', isLoggedIn, function(req, res){
     if(err){
       console.log(err);
     }else{
-      console.log('Ha: ' + task[0].dueDate);
       res.render("home.ejs", {currentUser: req.user,task: task});
     }
   }).sort('dueDate');
