@@ -1,4 +1,5 @@
-# webmaster
+# Percept
+The goal of this application was to try and create a task management software that would use machine learning to help people figure out when to do tasks rather than just help them keep track of them.
 
 ## Project setup
 ```
