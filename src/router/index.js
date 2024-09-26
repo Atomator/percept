@@ -7,6 +7,7 @@ import Signup from '@/pages/Signup'
 import Login from '@/pages/Login'
 import Dashboard from '@/pages/Dashboard'
 import DemoTask from '@/pages/DemoTask'
+import Forget from '@/pages/ForgotPassword'
 
 
 Vue.use(Router)
@@ -32,6 +33,11 @@ const router = new Router({
       path: '/signup',
       name: 'SignUp',
       component: Signup
+    },
+    {
+      path: '/forget',
+      name: 'Forget',
+      component: Forget
     },
     {
       path: '/dashboard',
